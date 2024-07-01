@@ -30,6 +30,13 @@ const devConfig: Configuration = merge(config, {
     },
     liveReload: true,
     historyApiFallback: true,
+    proxy: [
+      {
+        context: ["/socketio"],
+        target: "http://localhost:3000",
+        secure: false,
+      },
+    ],
   },
   module: {
     rules: [
