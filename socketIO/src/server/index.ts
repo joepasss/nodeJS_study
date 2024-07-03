@@ -18,8 +18,22 @@ const io = new Server(server, {
 
 io.on("connection", (socket: Socket) => {
   console.log(`a user connected!: ${socket.id}`);
+
+  socket.emit("message", `Hello ${socket.id}`);
+
+  socket.broadcast.emit("message", `say hello to ${socket.id}`);
+
+  socket.on("disconnect", () => {
+    console.log(`socket disconnected!: ${socket.id}`);
+
+    socket.broadcast.emit("message", `${socket.id} has left...`);
+  });
 });
 
 server.listen(port, () => {
   console.log(`server listening on port: ${port}`);
 });
+
+setInterval(() => {
+  io.emit("message", Math.floor(Math.random() * 100));
+}, 1000);
