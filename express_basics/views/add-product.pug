@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+html(lang="en")
+  head 
+    meta(charset="UTF-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    title SHOP
+    link(rel="stylesheet" href="/css/main.css")
+  body
+    header 
+      nav 
+        ul 
+          li 
+            a(href="/") Shop
+          li 
+            a(href="/admin/add-product") Add Products
+    main 
+      div.form_container
+        h1 ADD PRODUCT
+        if msg
+          p.error_msg ERROR!! #{msg}
+        form(action="/admin/add-product", method="POST")
+          div.input_field
+            p.input_desc title:
+            input(type="text", name="title" value=title)
+            p.input_desc description:
+            input(type="text", name="desc" value=desc)
+          button.form_submit(type="submit") Add Product
