@@ -1,17 +1,39 @@
 import express from "express";
-import path from "path";
-import { viewsDir } from "../utils/path";
 
 const adminRouter = express.Router();
 
+// hard coded database
+interface ProductInterface {
+  title: string;
+  desc: string;
+}
+
+const products: ProductInterface[] = [];
+
 adminRouter.get("/add-product", (_req, res, _next) => {
-  res.sendFile(path.join(viewsDir, "add-product.html"));
+  res.render("add-product");
 });
 
 adminRouter.post("/add-product", (req, res, _next) => {
-  console.log(req.body);
+  const { title, desc } = req.body;
 
+  if (title === "" || desc === "") {
+    const errorMessage = (): string => {
+      if (title !== "") {
+        return "there is no description!";
+      }
+
+      return "there is no title!";
+    };
+
+    const msg = errorMessage();
+
+    return res.status(400).render("add-product", { title, desc, msg });
+  }
+
+  products.push({ title, desc });
   res.redirect("/");
 });
 
 export default adminRouter;
+export { products, ProductInterface };
