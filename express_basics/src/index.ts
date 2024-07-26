@@ -5,6 +5,7 @@ import path from "path";
 import adminRouter from "./routes/admin";
 import shopRouter from "./routes/shop";
 import { rootDir } from "./utils/path";
+import { getNotfoundPage } from "./controllers/error";
 
 const app = express();
 
@@ -19,8 +20,6 @@ app.use("/admin", adminRouter);
 app.use(shopRouter);
 
 // 404 error
-app.use((_req, res, _next) => {
-  res.status(404).render("not-found");
-});
+app.use(getNotfoundPage);
 
 app.listen(3000);

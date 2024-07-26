@@ -1,10 +1,8 @@
 import express from "express";
-import { products } from "./admin";
+import { getProducts } from "../controllers/products";
 
 const shopRouter = express.Router();
 
-shopRouter.get("/", (_req, res, _next) => {
-  res.render("shop", { prods: products });
-});
+shopRouter.get("/", getProducts);
 
 export default shopRouter;

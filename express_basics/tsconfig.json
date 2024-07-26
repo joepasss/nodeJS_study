@@ -8,11 +8,10 @@
     "forceConsistentCasingInFileNames": true,
     "strict": true,
     "skipLibCheck": true,
-    "outDir": "./dist",
-    "baseUrl": ".",
+    "outDir": "./dist"
   },
   "include": [
-    "src/**/*",
+    "src/**/*"
   ],
   "ts-node": {
     "esm": true,
