@@ -14,6 +14,18 @@
     "paths": {
       "@styles/*": [
         "src/styles/*"
+      ],
+      "@common/*": [
+        "src/components/common/*"
+      ],
+      "@layouts/*": [
+        "src/components/layouts/*"
+      ],
+      "@shop/*": [
+        "src/components/shop/*"
+      ],
+      "@my_types/*": [
+        "src/types/*"
       ]
     }
   },

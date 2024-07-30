@@ -1,9 +1,36 @@
+@use "navigation";
+@use "shop";
+@import 'https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap';
+@import "node_modules/nord/src/sass/nord";
+
 * {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
 
 div#root {
-  width: 100dvw;
-  height: 100dvh;
+  font-family: "IBM Plex Mono", monospace;
+  background-color: $nord0;
+  color: $nord4;
+  overflow: scroll;
+  display: flex;
+  height: 100dvh; 
+  justify-content: center;
+}
+
+div.layout {
+  padding: 0.5rem 1rem;
+  width: 100%;
+  max-width: 1200px;
+}
+
+li {
+  list-style: none;
+}
+
+a, a:visited {
+  color: $nord4;
+  font-size: 0.8rem;
+  font-weight: bold;
 }
