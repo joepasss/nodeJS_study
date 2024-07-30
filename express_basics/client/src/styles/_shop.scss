@@ -27,12 +27,8 @@ div.shop-container {
           aspect-ratio: 1 / 1;
           object-fit: cover;
         }
-      }
-    }
 
-    div.product-item:hover {
-      div.product-thumb {
-        img {
+        img:hover {
           border: 4px solid nord.$nord4;
         }
       }
