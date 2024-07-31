@@ -24,6 +24,9 @@
       "@shop/*": [
         "src/components/shop/*"
       ],
+      "@addProduct/*": [
+        "src/components/addProduct/*"
+      ],
       "@my_types/*": [
         "src/types/*"
       ]

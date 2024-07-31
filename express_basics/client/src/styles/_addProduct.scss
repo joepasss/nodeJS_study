@@ -1,0 +1,44 @@
+@import "node_modules/nord/src/sass/nord";
+
+div.add-product-container {
+  width: 100%;
+
+  form.add-product {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 0.5rem;
+
+    div.form-item {
+      p {
+        font-size: 0.8rem;
+        font-weight: 500;
+        margin-bottom: 0.25rem;
+      }
+
+      input {
+        font-size: 0.8rem;
+        padding: 0.25rem;
+        border-radius: 0.5rem;
+        background-color: $nord0;
+        color: $nord5;
+        border: 2px solid $nord6;
+      }
+    }
+
+    button.submit {
+      padding: 0.25rem;
+      background-color: $nord9;
+      outline: none;
+      border: 2px solid $nord6;
+      border-radius: 0.5rem;
+      color: $nord5;
+      cursor: pointer;
+    }
+
+    button.submit:hover {
+      background-color: $nord10;
+    }
+  }
+}

@@ -4,6 +4,9 @@ import { createBrowserRouter, Navigate } from "react-router-dom";
 import React from "react";
 
 const Shop = React.lazy(async () => await import("@shop/Shop"));
+const AddProduct = React.lazy(
+  async () => await import("@addProduct/AddProduct")
+);
 
 const router = createBrowserRouter([
   {
@@ -16,7 +19,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/add-product",
-        element: <h1>ADD PRODUCT</h1>,
+        element: <AddProduct />,
       },
       {
         path: "/error",

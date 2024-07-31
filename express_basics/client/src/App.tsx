@@ -4,7 +4,7 @@ import router from "./components/Router";
 
 const App = () => {
   return (
-    <div className="App">
+    <div className="app">
       <Suspense>
         <RouterProvider router={router} />
       </Suspense>
