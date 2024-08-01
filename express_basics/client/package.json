@@ -62,10 +62,13 @@
     "uuid": "^10.0.0",
     "webpack": "^5.92.1",
     "webpack-cli": "^5.1.4",
+    "webpack-dev-middleware": "^7.3.0",
     "webpack-dev-server": "^5.0.4",
     "webpack-merge": "^5.10.0"
   },
   "dependencies": {
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
     "nord": "^0.2.1",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",

@@ -10,6 +10,7 @@ const config: Configuration = {
   entry: "./src/index.tsx",
   output: {
     path: path.resolve(currentDir, "../dist"),
+    publicPath: "/",
   },
   resolve: {
     extensions: [".tsx", ".ts", ".js"],

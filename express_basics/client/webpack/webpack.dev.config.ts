@@ -15,9 +15,6 @@ interface Configuration extends WebpackConfiguration {
 const devConfig: Configuration = merge(config, {
   mode: "development",
   devtool: "eval-source-map",
-  output: {
-    publicPath: "/",
-  },
   devServer: {
     port: 9000,
     static: {
