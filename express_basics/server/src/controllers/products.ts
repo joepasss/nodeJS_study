@@ -1,35 +1,70 @@
 import { RequestHandler } from "express";
-import { createProduct, fetchAllProduct } from "../models/products";
+import {
+  createProduct,
+  editProduct,
+  fetchAllProduct,
+  filterProduct,
+} from "../models/products";
 
-const getAddProduct: RequestHandler = (_req, res, _next) => {
-  res.render("add-product");
+const getProducts: RequestHandler = async (_req, res, _next) => {
+  fetchAllProduct()
+    .then((products) => {
+      res.json({ data: products });
+    })
+    .catch((err) => {
+      res
+        .status(500)
+        .json({ message: "Failed to fetch products ...", error: err });
+    });
 };
 
-const postAddProduct: RequestHandler = (req, res, _next) => {
-  const { title, desc } = req.body;
+const getProduct: RequestHandler = async (req, res, _next) => {
+  const productId = req.params.id;
 
-  if (title === "" || desc === "") {
-    const errorMessage = (): string => {
-      if (title !== "") {
-        return "there is no description!";
-      }
+  console.log(productId);
 
-      return "there is no title!";
-    };
+  res.send();
+};
 
-    const msg = errorMessage();
+const addProduct: RequestHandler = (req, res, _next) => {
+  const { title, price } = req.body;
 
-    return res.status(400).render("add-product", { title, desc, msg });
+  if (req.file === undefined) {
+    const msg = "NO IMAGE!";
+
+    return res.status(400).json({
+      message: msg,
+    });
   }
 
-  createProduct(title, desc);
-  res.redirect("/");
+  const thumb = `/uploads/${req.file.filename}`;
+  const filename = req.file?.originalname;
+
+  if (title === "" || price === "") {
+    const msg = `INVALID_DATATYPE!\nreq.body: ${req.body}`;
+
+    return res.status(400).json({
+      message: msg,
+    });
+  }
+
+  createProduct(title, price, thumb, filename);
+
+  res.send();
 };
 
-const getProducts: RequestHandler = (_req, res, _next) => {
-  fetchAllProduct().then((prods) => {
-    res.render("shop", { prods });
-  });
+const updateProduct: RequestHandler = async (req, res, _next) => {
+  const productId = req.params.id;
+  editProduct(productId);
+
+  res.send();
 };
 
-export { getAddProduct, postAddProduct, getProducts };
+const deleteProduct: RequestHandler = async (req, res, _next) => {
+  const productId = req.params.id;
+  filterProduct(productId);
+
+  res.send();
+};
+
+export { getProducts, getProduct, addProduct, updateProduct, deleteProduct };

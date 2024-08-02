@@ -4,20 +4,17 @@ import path from "path";
 
 import adminRouter from "./routes/admin";
 import shopRouter from "./routes/shop";
-import { rootDir } from "./utils/path";
 import { getNotfoundPage } from "./controllers/error";
+import { rootDir } from "./utils/path";
 
 const app = express();
 
-app.set("view engine", "pug");
-app.set("views", "views");
-
-app.use(bodyParser.urlencoded());
-app.use(express.static(path.join(rootDir, "public")));
+app.use(bodyParser.urlencoded({ extended: false }));
 
 // routes
-app.use("/admin", adminRouter);
-app.use(shopRouter);
+app.use("/uploads", express.static(path.join(rootDir, "uploads")));
+app.use("/api/admin", adminRouter);
+app.use("/api", shopRouter);
 
 // 404 error
 app.use(getNotfoundPage);
