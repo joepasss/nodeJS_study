@@ -1,9 +1,9 @@
 export interface ProductDataInterface {
   id: string;
   title: string;
-  price: number;
+  price: string;
   image: {
-    thumb: string;
-    filename?: string | undefined;
+    url: string;
+    filename: string;
   };
 }

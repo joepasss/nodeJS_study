@@ -1,7 +1,7 @@
-import { RequestHandler } from "express";
+import { LogFlags } from "../types/log";
 
-const getNotfoundPage: RequestHandler = (_req, res, _next) => {
-  res.status(404).json({ message: "ERROR!: Page not Found" });
+const logger = (message: string, flag: LogFlags) => {
+  console.log(`${flag}: ${message}`);
 };
 
-export { getNotfoundPage };
+export { logger };
