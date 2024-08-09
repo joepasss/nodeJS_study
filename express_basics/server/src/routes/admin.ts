@@ -10,6 +10,7 @@ import {
   deleteProduct,
   updateProduct,
 } from "../controllers/product";
+import { getLogs } from "../controllers/server";
 
 const formDate = () => {
   const date = new Date();
@@ -135,5 +136,16 @@ adminRouter.put(
       });
   }
 );
+
+adminRouter.get("/logs", (_req, res, _next) => {
+  getLogs()
+    .then((logs) => {
+      res.json({ error: undefined, data: logs });
+    })
+    .catch((err) => {
+      console.error(`ERROR! ${err}`);
+      res.status(500).json({ error: { message: "failed to get logs " } });
+    });
+});
 
 export default adminRouter;
