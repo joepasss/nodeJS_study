@@ -1,0 +1,53 @@
+@use "node_modules/nord/src/sass/nord" as nord;
+@use "topbar";
+@use "shop";
+@use "product";
+@use "add-product";
+@use "product-form";
+@import 'https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap';
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "IBM Plex Mono", monospace;
+}
+
+body {
+  div#root {
+    background-color: nord.$nord0;
+    color: nord.$nord4;
+    overflow: scroll;
+    display: flex;
+    height: 100dvh;
+    justify-content: center;
+
+    div.app {
+      width: 100%;
+      max-width: 1200px;
+
+      div.layout {
+        padding: 0.5rem 1rem;
+        width: 100%;
+      }
+    }
+  }
+
+  li {
+    list-style: none;
+  }
+
+  a, a:visited {
+    color: nord.$nord4;
+  }
+
+  input, input:focus {
+    border: none;
+    outline: none;
+  }
+
+  button {
+    outline: none;
+    border: none;
+  }
+}

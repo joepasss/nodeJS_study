@@ -1,0 +1,49 @@
+@use "node_modules/nord/src/sass/nord" as nord;
+
+div.product-page {
+  width: 100%;
+
+  div.header-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+
+    h4.header {
+      width: 100%;
+      margin-bottom: 0.5rem;
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+
+      p.price {
+        font-size: 0.8rem;
+        color: nord.$nord9;
+      }
+    }
+
+    button.circle {
+      padding: 0.25rem;
+      border-radius: 50%;
+      cursor: pointer;
+      background-color: nord.$nord10;
+    }
+
+    button.circle.active {
+      background-color: nord.$nord11;
+    }
+
+    p.price::after {
+      content: "$";
+    }
+  }
+
+  div.product-container {
+    width: 100%;
+
+    img.thumbnail {
+      width: 100%;
+      border-radius: 0.5rem;
+    }
+  }
+}

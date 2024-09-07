@@ -1,0 +1,55 @@
+@use "node_modules/nord/src/sass/nord" as nord;
+
+form.product-form {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto;
+  gap: 1rem;
+
+  div.form-item {
+    width: max-content;
+
+    p.form-item-placeholder {
+      font-size: 0.8rem;
+      font-weight: bold;
+      margin-bottom: 0.25rem;
+    }
+
+    input.form-input {
+      background-color: nord.$nord0;
+      border-bottom: 2px solid nord.$nord6;
+      color: nord.$nord6;
+    }
+
+    input.form-input.product-image {
+      border: none;
+    }
+  }
+
+  div.form-item.error {
+    input.form-input {
+      border-bottom: 2px solid nord.$nord11;
+      color: nord.$nord11;
+    }
+
+    input.form-input.product-image {
+      border: none;
+    }
+
+    p.form-element-error {
+      color: nord.$nord11;
+      font-size: 0.8rem;
+      font-weight: bold;
+    }
+  }
+
+  button.submit-btn {
+    padding: 0.25rem 0.5rem;
+    border-radius: 0.5rem;
+    background-color: nord.$nord9;
+  }
+
+  button.submit-btn.disable {
+    background-color: nord.$nord1;
+  }
+}

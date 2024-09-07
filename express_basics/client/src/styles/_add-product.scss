@@ -1,0 +1,14 @@
+@use "node_modules/nord/src/sass/nord" as nord;
+
+div.add-product-page {
+  width: 100%;
+
+  div.add-product-form-container {
+    width: 100%;
+
+    h4.header {
+      width: 100%;
+      margin-bottom: 0.5rem;
+    }
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "compilerOptions": {
+    "target": "ESNext",
+    "module": "ESNext",
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "strict": true,
+    "skipLibCheck": true,
+    "outDir": "./dist",
+    "baseUrl": ".",
+    "jsx": "react-jsx",
+    "paths": {
+      "*": ["*"],
+      "@Styles/*": ["src/styles/*"],
+      "@Components/*": ["src/components/*"],
+      "@Pages/*": ["src/pages/*"],
+      "@Routes/*": ["src/routes/*"]
+    }
+  },
+  "include": [
+    "src/**/*"
+  ],
+  "ts-node": {
+    "esm": true,
+    "experimentalSpecifierResolution": "node"
+  }
+}
